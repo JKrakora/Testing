@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dwo5v2j3m8lq6"]
+
+[ext_resource type="Script" uid="uid://cm612twchakb" path="res://testing/5D Noise (Bad)/5d_terrain_generation.gd" id="1_8l3lq"]
+
+[node name="TerrainGeneration" type="Node3D" unique_id=685047995]
+script = ExtResource("1_8l3lq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1158846887]
+transform = Transform3D(0.6762014, -0.474495, 0.56356543, -1.6022616e-08, 0.76496893, 0.64406705, -0.7367166, -0.4355191, 0.517273, 0, 0, 0)

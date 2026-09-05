@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://1kw6ndjpict4"
+path="res://.godot/imported/5d_marching_cubes.glsl-dda94cac3ec4e59f93b4ad4d0f8d5596.res"
+
+[deps]
+
+source_file="res://testing/5D Noise (Bad)/5d_marching_cubes.glsl"
+dest_files=["res://.godot/imported/5d_marching_cubes.glsl-dda94cac3ec4e59f93b4ad4d0f8d5596.res"]
+
+[params]
+

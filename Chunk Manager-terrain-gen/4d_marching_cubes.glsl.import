@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://b3x1ujsnm8vga"
+path="res://.godot/imported/4d_marching_cubes.glsl-15c1b48cb0c255a982ff87b9f845cc95.res"
+
+[deps]
+
+source_file="res://testing/Chunk Manager/4d_marching_cubes.glsl"
+dest_files=["res://.godot/imported/4d_marching_cubes.glsl-15c1b48cb0c255a982ff87b9f845cc95.res"]
+
+[params]
+

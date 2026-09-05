@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bb605sbliam2j"]
+
+[ext_resource type="Script" uid="uid://5h5efxuq74sn" path="res://testing/Terrain Generation/Chunk Manager/chunk_manager.gd" id="1_libio"]
+[ext_resource type="Script" uid="uid://dtk8vugwnj3nt" path="res://testing/Terrain Generation/Chunk Manager/tester.gd" id="2_d0m5j"]
+
+[node name="World Manager" type="Node3D" unique_id=1638573563 node_paths=PackedStringArray("player")]
+script = ExtResource("1_libio")
+player = NodePath("Tester")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=559876443]
+transform = Transform3D(0.5549549, 0.64299643, -0.5278074, 0, 0.6344751, 0.7729433, 0.83188045, -0.42894867, 0.35210505, 0, 0, 0)
+
+[node name="Tester" type="Node3D" parent="." unique_id=37620650]
+script = ExtResource("2_d0m5j")

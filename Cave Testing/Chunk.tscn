@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ravyr8dslrvn"]
+
+[ext_resource type="Texture2D" uid="uid://dd1l7sruunmkw" path="res://assets/Green.png" id="1_7k5qk"]
+[ext_resource type="Script" uid="uid://c2rv67vup55kj" path="res://testing/Cave Testing/chunk.gd" id="1_k84af"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvua6"]
+albedo_texture = ExtResource("1_7k5qk")
+
+[node name="Chunk" type="MeshInstance3D" unique_id=1076109361]
+material_override = SubResource("StandardMaterial3D_rvua6")
+script = ExtResource("1_k84af")

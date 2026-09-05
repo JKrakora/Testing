@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://qkj8d3hrpad5"]
+
+[ext_resource type="Script" uid="uid://u3yvb3sl0sx2" path="res://testing/CPU World Manager/world_manager.gd" id="1_wy4nk"]
+
+[node name="WorldManager" type="Node3D" unique_id=892966900]
+script = ExtResource("1_wy4nk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=681581452]
+transform = Transform3D(0.61685795, -0.554465, 0.55861866, 0, 0.7097405, 0.7044632, -0.7870745, -0.4345537, 0.43780908, 0, 0, 0)

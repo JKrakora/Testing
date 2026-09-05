@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://db8xek20hcapq"]
+
+[ext_resource type="Texture2D" uid="uid://dd1l7sruunmkw" path="res://assets/Green.png" id="1_7cc4y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0h7f"]
+albedo_texture = ExtResource("1_7cc4y")
+
+[node name="Chunk" type="MeshInstance3D" unique_id=594010898]
+material_override = SubResource("StandardMaterial3D_n0h7f")

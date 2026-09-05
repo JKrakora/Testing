@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dxji6ubar440j"]
+
+[ext_resource type="Script" uid="uid://d3mg4d767o0nf" path="res://testing/CPU World Manager/chunk.gd" id="1_eih1w"]
+[ext_resource type="Texture2D" uid="uid://dd1l7sruunmkw" path="res://assets/Green.png" id="1_ess6a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_codre"]
+albedo_texture = ExtResource("1_ess6a")
+
+[node name="Chunk" type="MeshInstance3D" unique_id=1838962662]
+material_override = SubResource("StandardMaterial3D_codre")
+script = ExtResource("1_eih1w")

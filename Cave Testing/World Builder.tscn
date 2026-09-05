@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cdnf68df6svfs"]
+
+[ext_resource type="Script" uid="uid://byrqcb3osmjhp" path="res://testing/Cave Testing/world_builder.gd" id="1_6nuq0"]
+[ext_resource type="Script" uid="uid://d0ofkasv16j42" path="res://testing/Cave Testing/test_mover.gd" id="2_af04m"]
+
+[node name="World Builder" type="Node3D" unique_id=159457353 node_paths=PackedStringArray("player")]
+script = ExtResource("1_6nuq0")
+player = NodePath("Test Mover")
+max_add_count_per_tick = 10
+max_remove_count_per_tick = 10
+world_chunk_count = Vector3i(50, 20, 50)
+chunk_unload_radius = 15
+max_mesh_thread_count = 15
+carver_threshold = Vector2(0.5, 0.6)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=457642475]
+transform = Transform3D(-0.74542844, 0.4788686, -0.4637039, -2.0087036e-08, 0.6956403, 0.7183901, 0.6665856, 0.5355086, -0.51855016, 0, 0, 0)
+
+[node name="Chunk Holder" type="Node3D" parent="." unique_id=1295525014]
+
+[node name="Test Mover" type="Node3D" parent="." unique_id=1524304102]
+script = ExtResource("2_af04m")
+direction = Vector3(1, 0, -1)
+rotation_speed = 0.0
+speed = 0.0
