@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dmtmugvs7t0rk"]
+
+[ext_resource type="Script" uid="uid://dnekwv8rdrbdo" path="res://testing/World Storage/world_manager.gd" id="1_5cmtw"]
+
+[node name="World Manager" type="Node3D" unique_id=46201589]
+script = ExtResource("1_5cmtw")

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://cv8yvrben7to"]
+
+[ext_resource type="Script" uid="uid://cgssbhfq8tw86" path="res://testing/Player/player.gd" id="1_6eyey"]
+[ext_resource type="Script" uid="uid://bmh0txp72gy6v" path="res://systems/smooth_camera/smooth_camera.gd" id="2_d3wef"]
+[ext_resource type="Script" uid="uid://bp6rclcjhr72k" path="res://systems/state_machine/state_machine.gd" id="4_lkdrv"]
+[ext_resource type="Script" uid="uid://ffhlamx5874t" path="res://testing/Player/States/default_state.gd" id="5_p7iby"]
+[ext_resource type="Script" uid="uid://c2m4w3jrguey4" path="res://testing/Player/States/sprint_state.gd" id="6_0rnld"]
+[ext_resource type="Script" uid="uid://mtcynie0i4hl" path="res://testing/Player/States/jump_state.gd" id="7_srp4u"]
+[ext_resource type="Script" uid="uid://btds1dinvmyle" path="res://testing/Player/States/vault_state.gd" id="8_jfpux"]
+[ext_resource type="Script" uid="uid://dkaxjpjabtp50" path="res://testing/Player/States/crouch_state.gd" id="9_61ith"]
+[ext_resource type="Script" uid="uid://kjfmxb23vp85" path="res://testing/Player/States/slide_state.gd" id="10_ebwui"]
+[ext_resource type="Script" uid="uid://paoivr0326g6" path="res://testing/Player/States/mantle_state.gd" id="11_d3wef"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6eyey"]
+radius = 0.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d3wef"]
+top_radius = 0.4
+bottom_radius = 0.4
+
+[node name="Player" type="CharacterBody3D" unique_id=1985212635 node_paths=PackedStringArray("movement_machine", "camera", "collider", "debug_mesh")]
+collision_layer = 2
+script = ExtResource("1_6eyey")
+movement_machine = NodePath("Movement Machine")
+camera = NodePath("SmoothCamera3D")
+collider = NodePath("CollisionShape3D")
+debug_mesh = NodePath("CollisionShape3D/MeshInstance3D")
+
+[node name="SmoothCamera3D" type="Camera3D" parent="." unique_id=450011307 node_paths=PackedStringArray("target")]
+fov = 90.0
+script = ExtResource("2_d3wef")
+target = NodePath("../Camera Target")
+metadata/_custom_type_script = "uid://bmh0txp72gy6v"
+
+[node name="Camera Target" type="Node3D" parent="." unique_id=969699791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Mantle Wall Check" type="RayCast3D" parent="Camera Target" unique_id=1305224989]
+target_position = Vector3(0, 0, 0)
+
+[node name="Mantle Floor Check" type="RayCast3D" parent="Camera Target/Mantle Wall Check" unique_id=29801435]
+target_position = Vector3(0, 0, 0)
+
+[node name="Vault Height Check" type="RayCast3D" parent="Camera Target" unique_id=169450680]
+target_position = Vector3(0, 0, 0)
+
+[node name="Vault Depth Check" type="RayCast3D" parent="Camera Target/Vault Height Check" unique_id=172642113]
+target_position = Vector3(0, 0, 0)
+hit_from_inside = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1647131949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_6eyey")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1100765843]
+mesh = SubResource("CylinderMesh_d3wef")
+
+[node name="Movement Machine" type="Node" parent="." unique_id=1694002074 node_paths=PackedStringArray("start_state")]
+script = ExtResource("4_lkdrv")
+start_state = NodePath("Default")
+metadata/_custom_type_script = "uid://bp6rclcjhr72k"
+
+[node name="Crouch" type="Node" parent="Movement Machine" unique_id=1613369980 node_paths=PackedStringArray("default_state", "jump_state", "mantle_state", "sprint_state", "vault_state")]
+script = ExtResource("9_61ith")
+default_state = NodePath("../Default")
+jump_state = NodePath("../Jump")
+mantle_state = NodePath("../Mantle")
+sprint_state = NodePath("../Sprint")
+vault_state = NodePath("../Vault")
+
+[node name="Default" type="Node" parent="Movement Machine" unique_id=1420449414 node_paths=PackedStringArray("crouch_state", "jump_state", "mantle_state", "slide_state", "sprint_state", "vault_state")]
+script = ExtResource("5_p7iby")
+crouch_state = NodePath("../Crouch")
+jump_state = NodePath("../Jump")
+mantle_state = NodePath("../Mantle")
+slide_state = NodePath("../Slide")
+sprint_state = NodePath("../Sprint")
+vault_state = NodePath("../Vault")
+
+[node name="Jump" type="Node" parent="Movement Machine" unique_id=1063124972 node_paths=PackedStringArray("default_state", "sprint_state")]
+script = ExtResource("7_srp4u")
+default_state = NodePath("../Default")
+sprint_state = NodePath("../Sprint")
+
+[node name="Mantle" type="Node" parent="Movement Machine" unique_id=1028776810 node_paths=PackedStringArray("wall_check", "floor_check", "default_state")]
+script = ExtResource("11_d3wef")
+wall_check = NodePath("../../Camera Target/Mantle Wall Check")
+floor_check = NodePath("../../Camera Target/Mantle Wall Check/Mantle Floor Check")
+default_state = NodePath("../Default")
+metadata/_custom_type_script = "uid://b3ij5sduymgkj"
+
+[node name="Slide" type="Node" parent="Movement Machine" unique_id=1308424144 node_paths=PackedStringArray("default_state")]
+script = ExtResource("10_ebwui")
+default_state = NodePath("../Default")
+
+[node name="Sprint" type="Node" parent="Movement Machine" unique_id=710892902 node_paths=PackedStringArray("default_state", "jump_state", "mantle_state", "slide_state", "vault_state")]
+script = ExtResource("6_0rnld")
+default_state = NodePath("../Default")
+jump_state = NodePath("../Jump")
+mantle_state = NodePath("../Mantle")
+slide_state = NodePath("../Slide")
+vault_state = NodePath("../Vault")
+
+[node name="Vault" type="Node" parent="Movement Machine" unique_id=1757633540 node_paths=PackedStringArray("height_check", "depth_check", "default_state", "sprint_state")]
+script = ExtResource("8_jfpux")
+height_check = NodePath("../../Camera Target/Vault Height Check")
+height_check_relative_height = -0.6
+depth_check = NodePath("../../Camera Target/Vault Height Check/Vault Depth Check")
+default_state = NodePath("../Default")
+sprint_state = NodePath("../Slide")
