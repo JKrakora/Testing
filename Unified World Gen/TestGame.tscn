@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://lncmkyhf5eyw"]
+
+[ext_resource type="Script" uid="uid://j7byer3fyryn" path="res://testing/Unified World Gen/test_game.gd" id="1_i5jhv"]
+[ext_resource type="PackedScene" uid="uid://e5ucjenr6asw" path="res://testing/Unified World Gen/World Manager.tscn" id="2_5d7pn"]
+
+[node name="TestGame" type="Node" unique_id=1522192233]
+script = ExtResource("1_i5jhv")
+
+[node name="World Manager" parent="." unique_id=206727902 instance=ExtResource("2_5d7pn")]

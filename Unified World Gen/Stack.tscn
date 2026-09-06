@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dpk7a3skb4ddn"]
+
+[ext_resource type="Script" uid="uid://dc1ivxqh2skke" path="res://testing/Unified World Gen/stack.gd" id="1_ep0v8"]
+
+[node name="Stack" type="Node3D" unique_id=1964426816]
+script = ExtResource("1_ep0v8")

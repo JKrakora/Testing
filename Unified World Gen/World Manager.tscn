@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://e5ucjenr6asw"]
+
+[ext_resource type="Script" uid="uid://ctiy2fvyh5r44" path="res://testing/Unified World Gen/world_manager.gd" id="1_6raxk"]
+
+[node name="World Manager" type="Node3D" unique_id=206727902]
+script = ExtResource("1_6raxk")
+
+[node name="Stack Holder" type="Node" parent="." unique_id=350119315]
